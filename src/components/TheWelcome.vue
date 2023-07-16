@@ -15,9 +15,7 @@ const { dogs } = useGetters({
 const { getDogs } = useActions({ getDogs: "dog/getDogs" });
 
 
-onMounted(() => {
-  getDogs()
-})
+
 
 </script>
 

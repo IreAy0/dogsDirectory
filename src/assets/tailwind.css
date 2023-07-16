@@ -4,5 +4,5 @@
 
 @font-face {
   font-family: Cerebri;
-  src: url(/CerebriSansPro-Regular.ttf) format(ttf);
+  src: url("CerebriSansPro-Regular.ttf");
 }

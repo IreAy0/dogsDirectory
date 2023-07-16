@@ -2,7 +2,7 @@
 import Loader from "./Loader.vue";
 import { useGetters, useActions, useStore } from "vuex-composition-helpers/dist";
 import { useRoute, useRouter } from "vue-router";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const store = useStore()
 const route = useRouter()
@@ -15,14 +15,21 @@ const { dogs, loading, message } = useGetters({
 
 const allDogs = ref(dogs)
 
-const { selectSingleDog } = useActions({
-  selectSingleDog: "dog/selectSingleDog"
+const { selectSingleDog, getDogs } = useActions({
+  selectSingleDog: "dog/selectSingleDog",
+  getDogs: "dog/getDogs"
 })
 
 const goToSingleDog = (index, url) => {
   selectSingleDog(url)
   route.push(`about/${index+1}`)
 }
+
+onMounted(() => {
+  if(allDogs.value.length == 0){
+    getDogs()
+  }
+})
 
 
 </script>
