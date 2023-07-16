@@ -46,9 +46,10 @@ onMounted(() =>{
 </script>
 
 <template>
+ 
   <div class="flex flex-col sm:flex-row gap-y-4 items-center">
-    <img :src="singleDog" class="w-72 h-72 object-cover rounded-lg mr-4" alt="Image">
-    <button @click="transformImage(dogImage)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <img :src="singleDog" class="w-72 h-72 object-cover rounded-lg mr-4" alt="dog-image">
+    <button @click="transformImage(dogImage)" class="bg-[#f6a93f] transform delay-150 duration-300 ease-in-out hover:bg-[#ff9d04] text-white font-bold py-2 px-4 rounded">
       Click me!
     </button>
   </div>
