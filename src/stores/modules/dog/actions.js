@@ -5,17 +5,13 @@ export const  getDogs = async ({ commit }) => {
   // const cache = await caches.open('my-cache');
   commit("SET_DOGS_LOADING", true);
   try {
-    while (allData.length < 100) {
+    for (let i = 0; i < 100; i++) {
       const response = await dogs.allDogs();
-      const data = response.data.message;
-      allData.push(
-        data,
-      )
-      if (allData.length == 100) {
-        commit("SET_DOGS", allData);
+      const json = await response.data.message;
+        allData.push(json);
+        commit("SET_DOGS", [...allData]);
         commit("SET_DOGS_LOADING", false);
-      }
-      }
+    }
   } catch (error) {
     return error
   }
